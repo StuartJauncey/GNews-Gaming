@@ -4,3 +4,10 @@ export const fetchArticles = (articles) => {
     payload: articles
   }
 }
+
+export const deleteArticle = (article) => {
+  return {
+    type: "deleteArticle",
+    key: article 
+  }
+}

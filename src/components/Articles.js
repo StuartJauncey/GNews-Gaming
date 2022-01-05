@@ -1,6 +1,6 @@
 import "../css/Articles.css";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchArticles } from "../state/actions";
+import { fetchArticles, deleteArticle } from "../state/actions";
 import { useEffect } from "react";
 import getArticles from "../axios/GET";
 
@@ -29,6 +29,7 @@ const Articles = () => {
             <p>{article[1].publishedAt}</p>
             <p>{article[1].source.name}</p>
             <p>{article[1].source.url}</p>
+            <button onClick={() => {dispatch(deleteArticle(article[0]))}}>Delete Article</button>
           </li>
         )
       })}
