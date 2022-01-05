@@ -1,4 +1,5 @@
-import './App.css';
+import './css/App.css';
+import Articles from './components/Articles';
 import SearchBar from './components/SearchBar';
 import Title from './components/TitleBar';
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Title />
       <SearchBar />
+      <Articles />
     </div>
   );
 }
