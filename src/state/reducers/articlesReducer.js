@@ -1,8 +1,7 @@
-const articlesReducer = (state = [], action) => {
+const articlesReducer = (state = { articles: [] }, action) => {
   switch (action.type) {
-    case "getArticles":
-      state.push(action.payload);
-      return state;
+    case "fetchArticles":
+      return action.payload;
     default:
       return state;
   }

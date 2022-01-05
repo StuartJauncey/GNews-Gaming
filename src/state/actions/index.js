@@ -1,8 +1,6 @@
-export const getArticles = (articles) => {
-  return (dispatch) => {
-    dispatch({
-      type: "getArticles",
-      payload: articles
-    })
+export const fetchArticles = (articles) => {
+  return {
+    type: "fetchArticles",
+    payload: articles
   }
 }
