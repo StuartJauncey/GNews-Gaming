@@ -9,29 +9,26 @@ const Articles = () => {
   const articlesStore = useSelector((state) => state.articles); 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    getArticles()
-      .then((data) => {
-        dispatch(fetchArticles(data));
-        console.log(data);
-      })
-  }, [])
-
-  console.log(articlesStore);
+  // useEffect(() => {
+  //   getArticles()
+  //     .then((data) => {
+  //       dispatch(fetchArticles(data));
+  //     })
+  // }, [])
 
   return (
     <ul className="article-container">
-      {articlesStore.articles.map(article => {
+      {Object.entries(articlesStore).map(article => {
         return (
-          <li className="article-card" key={article.title}>
-            <h2>{article.title}</h2>
-            <h3>{article.description}</h3>
-            <p>{article.content}</p>
-            <h4><a href={article.url}>Read more</a></h4>
-            <img className="article-image" src={article.image} alt={article.title}/>
-            <p>{article.publishedAt}</p>
-            <p>{article.source.name}</p>
-            <p>{article.source.url}</p>
+          <li className="article-card" key={article[0]}>
+            <h2>{article[1].title}</h2>
+            <h3>{article[1].description}</h3>
+            <p>{article[1].content}</p>
+            <h4><a href={article[1].url}>Read more</a></h4>
+            <img className="article-image" src={article[1].image} alt={article[1].title}/>
+            <p>{article[1].publishedAt}</p>
+            <p>{article[1].source.name}</p>
+            <p>{article[1].source.url}</p>
           </li>
         )
       })}
