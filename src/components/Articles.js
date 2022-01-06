@@ -6,15 +6,16 @@ import getArticles from "../axios/GET";
 
 const Articles = () => {
 
-  const articlesStore = useSelector((state) => state.articles); 
+  const articlesStore = useSelector((state) => state.articles);
+  const searchTerm = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   getArticles()
+  //   getArticles(searchTerm)
   //     .then((data) => {
   //       dispatch(fetchArticles(data));
   //     })
-  // }, [])
+  // }, [searchTerm]);
 
   return (
     <ul className="article-container">

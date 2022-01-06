@@ -11,3 +11,10 @@ export const deleteArticle = (article) => {
     key: article 
   }
 }
+
+export const searchTerm = (input) => {
+  return {
+    type: "searchTerm",
+    payload: input
+  }
+} 
