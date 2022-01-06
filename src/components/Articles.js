@@ -6,13 +6,16 @@ import getArticles from "../axios/GET";
 
 const Articles = () => {
 
-  const articlesStore = useSelector((state) => state.articles);
-  const searchTerm = useSelector((state) => state.search);
+  const articlesStore = useSelector(state => state.articles);
+  const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
 
   // useEffect(() => {
   //   getArticles(searchTerm)
   //     .then((data) => {
+  //        return response.data.articles.reduce((obj, item) => ({
+  //        ...obj, [item["title"]]: item
+  //        }), {});
   //       dispatch(fetchArticles(data));
   //     })
   // }, [searchTerm]);
@@ -22,6 +25,7 @@ const Articles = () => {
       {Object.entries(articlesStore).map(article => {
         return (
           <li className="article-card" key={article[0]}>
+            <button className="delete-article-button" onClick={() => {dispatch(deleteArticle(article[0]))}}>X</button>
             <h2>{article[1].title}</h2>
             <h3>{article[1].description}</h3>
             <p>{article[1].content}</p>
@@ -29,8 +33,7 @@ const Articles = () => {
             <img className="article-image" src={article[1].image} alt={article[1].title}/>
             <p>{article[1].publishedAt}</p>
             <p>{article[1].source.name}</p>
-            <p>{article[1].source.url}</p>
-            <button onClick={() => {dispatch(deleteArticle(article[0]))}}>Delete Article</button>
+            <p>{article[1].source.url}</p>    
           </li>
         )
       })}

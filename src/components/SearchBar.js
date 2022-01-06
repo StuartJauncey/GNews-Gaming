@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import "../css/SearchBar.css"
+import { useDispatch } from "react-redux";
 import { searchTerm } from "../state/actions";
 import { useState } from "react";
+import { BsSearch } from "react-icons/bs"
 
 const SearchBar = () => {
 
   const [searchType, setSearch] = useState("gaming");
-
-  const searchInput = useSelector(state => state.search);
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -19,10 +19,9 @@ const SearchBar = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input value={searchType} onChange={handleChange} />
-      <button>Search</button>
-      <h1>{searchInput}</h1>
+    <form className="search-bar" onSubmit={handleSubmit}>
+      <input className="search-input" value={searchType} onChange={handleChange} />
+      <button className="search-button"><BsSearch /></button>
     </form>
    
   )

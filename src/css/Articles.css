@@ -1,16 +1,37 @@
 .article-container {
   margin: 20px auto;
   width: 90%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-around;
 }
 
 .article-card {
-  margin: 10px 0;
-  padding: 10px;
+  margin: 10px 5px;
+  padding: 20px;
   list-style: none;
-  background-color: antiquewhite;
+  background-color: rgb(235, 233, 234);
+  box-shadow: 1px 1px 4px rgb(205, 203, 204);
 }
 
 .article-image {
   width: 50%;
   max-width: 400px;
+}
+
+.delete-article-button {
+  color: red;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 1200px) {
+  .article-container {
+    grid-template-columns: 45% 45%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .article-container {
+    grid-template-columns: 90%;
+  }
 }
