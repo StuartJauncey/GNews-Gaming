@@ -1,6 +1,6 @@
 import "../css/SearchBar.css"
-import { useDispatch } from "react-redux";
-import { searchTerm } from "../state/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { searchTerm, fetchArticles } from "../state/actions";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs"
 

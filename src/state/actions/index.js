@@ -17,4 +17,19 @@ export const searchTerm = (input) => {
     type: "searchTerm",
     payload: input
   }
-} 
+}
+
+export const articleSelected = (article) => {
+  return {
+    type: "articleSelected",
+    payload: article
+  }
+}
+
+export const editArticle = (selectedKey, article) => {
+  return {
+    type: "editArticle",
+    key: selectedKey,
+    payload: article
+  }
+}

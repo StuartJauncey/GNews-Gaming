@@ -1,0 +1,46 @@
+.edit-form {
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  background-color: rgb(235, 233, 234);
+  box-shadow: 1px 1px 4px rgb(205, 203, 204);
+  border-radius: 5px; 
+}
+
+.edit-title {
+  margin: 20px auto;
+  padding: 5px 25px;
+  width: fit-content;
+  background-color: rgb(235, 233, 234);
+  box-shadow: 1px 1px 4px rgb(205, 203, 204);
+  border-radius: 5px;
+}
+
+.edit-text {
+  align-self: center;
+}
+
+.submit-edit-button {
+  text-decoration: none;
+  width: 60%;
+  margin: auto;
+  background-color: rgb(215, 26, 100);
+  color: white;
+  text-shadow: 1px 1px 3px rgb(116, 17, 55);
+  padding: 10px 10px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 6px rgb(116, 17, 55);
+}
+
+.article-edit {
+  height: 90px;
+  margin: 10px 0;
+}
+
+.article-edit-image {
+  width: 40%;
+  min-width: 200px;
+  margin: 10px auto;
+}

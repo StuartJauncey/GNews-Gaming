@@ -6,6 +6,10 @@ const articlesReducer = (state = {}, action) => {
       let newObj = {...state};
       delete newObj[action.key];
       return newObj;
+    case "editArticle":
+      let editObj = {...state};
+      editObj[action.key] = action.payload;
+      return editObj;
     default:
       return state;
   }
