@@ -16,18 +16,16 @@ const Articles = () => {
   const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (Object.keys(articlesStore).length === 0) {
-      getArticles(searchTerm)
-      .then((data) => {
-        setArticleCount(data.totalArticles);
-        const articlesFound = data.articles.reduce((obj, item) => ({
-        ...obj, [item["title"]]: item
-        }), {});
-        dispatch(fetchArticles(articlesFound));
-      })
-    }
-  }, [searchTerm, dispatch]);
+  // useEffect(() => {
+  //   getArticles(searchTerm)
+  //     .then((data) => {
+  //     setArticleCount(data.totalArticles);
+  //     const articlesFound = data.articles.reduce((obj, item) => ({
+  //     ...obj, [item["title"]]: item
+  //     }), {});
+  //     dispatch(fetchArticles(articlesFound));
+  //   })
+  // }, [searchTerm, dispatch]);
 
   return (
     <div>
