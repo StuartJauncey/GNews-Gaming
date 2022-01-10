@@ -3,13 +3,15 @@ const articlesReducer = (state = {}, action) => {
     case "setArticles":
       return action.payload;
     case "deleteArticle":
-      let newObj = {...state};
-      delete newObj[action.key];
-      return newObj;
+      const remainingArticles = {...state};
+      delete remainingArticles[action.key];
+      return remainingArticles;
     case "editArticle":
-      let editObj = {...state};
-      editObj[action.key] = action.payload;
-      return editObj;
+      const articles = {...state};
+      articles[action.key] = action.payload;
+      return articles;
+    case "addArticle":
+      return {...state, [action.key]:action.newArticle};
     default:
       return state;
   }

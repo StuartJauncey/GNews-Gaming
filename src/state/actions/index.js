@@ -14,6 +14,14 @@ export const deleteArticle = (article) => {
   }
 }
 
+export const addArticle = (article, key) => {
+  return {
+    type: "addArticle",
+    newArticle: article,
+    key: key
+  }
+}
+
 export const searchTerm = (input) => {
   return {
     type: "searchTerm",

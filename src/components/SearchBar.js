@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { searchTerm, setTitle } from "../state/actions";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs"
+import { Link } from "react-router-dom";
 
 const SearchBar = () => {
 
@@ -20,10 +21,15 @@ const SearchBar = () => {
   }
 
   return (
-    <form className="search-bar" onSubmit={handleSubmit}>
-      <input className="search-input" value={searchType} onChange={handleChange} />
-      <button className="search-button"><BsSearch /></button>
-    </form>
+    <div>
+      <form className="search-bar" onSubmit={handleSubmit}>
+        <input className="search-input" value={searchType} onChange={handleChange} />
+        <button className="search-button"><BsSearch /></button>
+      </form>
+      <Link className="add-article-button" to="/add-article">Add Article</Link>
+    </div>
+    
+
    
   )
 }

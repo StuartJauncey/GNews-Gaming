@@ -1,10 +1,10 @@
-import "../css/Article.css";
+import "../css/EditArticle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { editArticle } from "../state/actions";
 import { Link } from "react-router-dom";
 
-const Article = () => {
+const EditArticle = () => {
   const article = useSelector(state => state.selectArticle);
 
   const [modifiedArticle, setModifiedArticle] = useState({
@@ -26,7 +26,7 @@ const Article = () => {
     setModifiedArticle({...modifiedArticle, [event.target.name]:event.target.value})
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     dispatch(editArticle(article.title, modifiedArticle));
   }
 
@@ -48,4 +48,4 @@ const Article = () => {
     </div>
   )
 }
-export default Article;
+export default EditArticle;
