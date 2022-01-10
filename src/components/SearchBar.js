@@ -4,6 +4,7 @@ import { searchTerm, setTitle } from "../state/actions";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs"
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const SearchBar = () => {
 
@@ -26,7 +27,7 @@ const SearchBar = () => {
         <input className="search-input" value={searchType} onChange={handleChange} />
         <button className="search-button"><BsSearch /></button>
       </form>
-      <Link className="add-article-button" to="/add-article">Add Article</Link>
+      <Link className="add-article-link" to="/add-article"><Button variant="contained">Add Article</Button></Link>
     </div>
     
 

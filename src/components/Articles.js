@@ -7,6 +7,7 @@ import dateModifier from "../utils/dateModifier";
 import { BsPencil } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
 
+
 const Articles = () => {
 
   const articlesStore = useSelector(state => state.articles);
@@ -18,7 +19,6 @@ const Articles = () => {
   //     dispatch(searchArticles(searchTerm))
   //   }
   // }, [searchTerm]);
-
 
   return (
     <div>
