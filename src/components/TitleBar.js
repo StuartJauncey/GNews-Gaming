@@ -5,10 +5,10 @@ import { capitaliseTitle } from "../utils/capitaliseTitle";
 
 const Title = () => {
 
-  const searchTerm = useSelector(state => state.search);
+  const title = useSelector(state => state.title);
 
   return (
-    <h1 className="title"><Link to="/" className="title-link">GNews {capitaliseTitle(searchTerm)}</Link></h1>
+    <h1 className="title"><Link to="/" className="title-link">GNews {capitaliseTitle(title)}</Link></h1>
   )
 }
 

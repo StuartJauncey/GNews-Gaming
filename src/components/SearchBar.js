@@ -1,16 +1,17 @@
 import "../css/SearchBar.css"
-import { useDispatch, useSelector } from "react-redux";
-import { searchTerm, fetchArticles } from "../state/actions";
+import { useDispatch } from "react-redux";
+import { searchTerm, setTitle } from "../state/actions";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs"
 
 const SearchBar = () => {
 
-  const [searchType, setSearch] = useState("gaming");
+  const [searchType, setSearch] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(setTitle(searchType));
     dispatch(searchTerm(searchType));
   }
 

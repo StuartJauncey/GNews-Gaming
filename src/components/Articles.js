@@ -1,35 +1,27 @@
 import "../css/Articles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchArticles, deleteArticle, articleSelected } from "../state/actions";
-import { useState, useEffect } from "react";
-import getArticles from "../axios/GET";
+import { searchArticles, deleteArticle, articleSelected } from "../state/actions";
+import { useEffect } from "react";
 import dateModifier from "../utils/dateModifier";
 import { BsPencil } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
 
 const Articles = () => {
 
-  const [articleCount, setArticleCount] = useState(0);
-
   const articlesStore = useSelector(state => state.articles);
   const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   getArticles(searchTerm)
-  //     .then((data) => {
-  //     setArticleCount(data.totalArticles);
-  //     const articlesFound = data.articles.reduce((obj, item) => ({
-  //     ...obj, [item["title"]]: item
-  //     }), {});
-  //     dispatch(fetchArticles(articlesFound));
-  //   })
-  // }, [searchTerm, dispatch]);
+  useEffect(() => {
+    if (searchTerm) {
+      dispatch(searchArticles(searchTerm))
+    }
+  }, [searchTerm]);
+
 
   return (
     <div>
-      <p className="number-of-results">Displaying {Object.keys(articlesStore).length} of {articleCount} results</p>
       <ul className="article-container">
         {Object.entries(articlesStore).map(article => {
           return (

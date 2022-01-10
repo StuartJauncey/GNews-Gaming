@@ -1,6 +1,6 @@
 const articlesReducer = (state = {}, action) => {
   switch (action.type) {
-    case "fetchArticles":
+    case "setArticles":
       return action.payload;
     case "deleteArticle":
       let newObj = {...state};
