@@ -105,6 +105,10 @@
   grid-area: time;
 }
 
+.article-website-link {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1200px) {
   .article-container {
     grid-template-columns: 45% 45%;

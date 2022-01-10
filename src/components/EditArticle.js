@@ -42,7 +42,7 @@ const EditArticle = () => {
           <h3 className="edit-text">Image</h3>
           <textarea name="image" className="article-edit" value={modifiedArticle.image} onChange={handleChange}/>
           <Link className="submit-edit-button" to="/" onClick={handleSubmit}>Submit Edit</Link>
-          <img className="article-edit-image" src={modifiedArticle.image}></img>
+          <img className="article-edit-image" src={modifiedArticle.image} alt={modifiedArticle.title}></img>
         </form>
         
     </div>
