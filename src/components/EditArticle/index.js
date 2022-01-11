@@ -1,10 +1,11 @@
-import "./EditArticle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { editArticle } from "../../state/actions";
 import { Link } from "react-router-dom";
+import { useStyles } from "./style";
 
 const EditArticle = () => {
+  const classes = useStyles();
   const article = useSelector(state => state.selectArticle);
 
   const [modifiedArticle, setModifiedArticle] = useState({
@@ -33,16 +34,16 @@ const EditArticle = () => {
   return (
     <div>
       <h2>Edit Article</h2>
-      <h2 className="edit-title">{article.title}</h2>
-        <form className="edit-form">
-          <h3 className="edit-text">Description</h3>
-          <textarea name="description" className="article-edit" value={modifiedArticle.description} onChange={handleChange}/>
-          <h3 className="edit-text">Content</h3>
-          <textarea name="content" className="article-edit" value={modifiedArticle.content} onChange={handleChange}/>
-          <h3 className="edit-text">Image</h3>
-          <textarea name="image" className="article-edit" value={modifiedArticle.image} onChange={handleChange}/>
-          <Link className="submit-edit-button" to="/" onClick={handleSubmit}>Submit Edit</Link>
-          <img className="article-edit-image" src={modifiedArticle.image} alt={modifiedArticle.title}></img>
+      <h2 className={classes.title}>{article.title}</h2>
+        <form className={classes.form}>
+          <h3 className={classes.text}>Description</h3>
+          <textarea name="description" className={classes.field} value={modifiedArticle.description} onChange={handleChange}/>
+          <h3 className={classes.text}>Content</h3>
+          <textarea name="content" className={classes.field} value={modifiedArticle.content} onChange={handleChange}/>
+          <h3 className={classes.text}>Image</h3>
+          <textarea name="image" className={classes.field} value={modifiedArticle.image} onChange={handleChange}/>
+          <Link className={classes.submitButton} to="/" onClick={handleSubmit}>Submit Edit</Link>
+          <img className={classes.image} src={modifiedArticle.image} alt={modifiedArticle.title}></img>
         </form>
         
     </div>

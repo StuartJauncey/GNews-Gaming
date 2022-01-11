@@ -1,12 +1,11 @@
-import "./Articles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { searchArticles } from "../../state/actions";
 import ArticleCard from "../ArticleCard";
-
+import { useStyles } from "./style";
 
 const Articles = () => {
-
+  const classes = useStyles();
   const articlesStore = useSelector(state => state.articles);
   const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const Articles = () => {
   }, [searchTerm]);
 
   return (
-      <ul className="article-container">
+      <ul className={classes.container}>
         {Object.entries(articlesStore).map(article => {
           return (
             <ArticleCard article={article}/>
