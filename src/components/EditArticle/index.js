@@ -1,7 +1,7 @@
-import "../css/EditArticle.css";
+import "./EditArticle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { editArticle } from "../state/actions";
+import { editArticle } from "../../state/actions";
 import { Link } from "react-router-dom";
 
 const EditArticle = () => {

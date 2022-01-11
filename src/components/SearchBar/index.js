@@ -1,6 +1,6 @@
-import "../css/SearchBar.css"
+import "./SearchBar.css"
 import { useDispatch } from "react-redux";
-import { searchTerm, setTitle } from "../state/actions";
+import { searchTerm, setTitle } from "../../state/actions";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs"
 import { Link } from "react-router-dom";
