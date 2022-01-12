@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { searchTerm, setTitle } from "../../state/actions";
 import { useState } from "react";
-import { BsSearch } from "react-icons/bs"
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
+import { Button, TextField } from '@mui/material';
 import { useStyles } from "./style";
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
   const classes = useStyles();
@@ -24,8 +24,8 @@ const SearchBar = () => {
   return (
     <div>
       <form className={classes.searchBar} onSubmit={handleSubmit}>
-        <input className={classes.searchInput} value={searchType} onChange={handleChange} />
-        <button className={classes.searchButton}><BsSearch /></button>
+        <TextField sx={{width: "300px"}} variant="standard" label="Search" value={searchType} onChange={handleChange} />
+        <button className={classes.searchButton}><SearchIcon /></button>
       </form>
       <Link className={classes.addArticleLink} to="/add-article"><Button variant="contained">Add Article</Button></Link>
     </div>

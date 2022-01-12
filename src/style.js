@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   '@global': {
     body: {
+      backgroundColor: "whitesmoke",
       margin: "0",
       textAlign: "center",
       fontFamily: "arial",

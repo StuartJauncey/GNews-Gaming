@@ -2,19 +2,19 @@ import { createUseStyles } from "react-jss";
 
 export const useStyles = createUseStyles({
   title: {
-    backgroundColor: "rgb(215, 26, 100)",
-    textShadow: "1px 1px 3px rgb(116, 17, 55)",
-    width: "80%",
-    margin: "20px auto",
-    padding: "10px 10px",
-    borderRadius: "30px",
-    boxShadow: "2px 2px 6px rgb(116, 17, 55)"
+    backgroundColor: "white",
+    textShadow: "0.5px 0.5px 1px grey",
+    width: "fit-content",
+    margin: "30px auto",
+    padding: "10px 40px",
+    borderRadius: "10px",
+    boxShadow: "1px 1px 4px rgb(205, 203, 204)"
   },
   titleLink: {
-    color: "white",
+    color: "black",
     textDecoration: "none",
     "&:hover": {
-      color: "yellow"
+      color: "blueviolet"
     }
   }
 })

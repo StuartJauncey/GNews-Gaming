@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addArticle } from "../../state/actions";
 import { useStyles } from "./style";
+import { TextField, Button } from "@mui/material";
 
 const AddArticle = () => {
   const classes = useStyles();
@@ -18,43 +19,113 @@ const AddArticle = () => {
       url: ""
     }
   })
-
+  const [isError, setError] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
+    setError(false);
     setNewArticle({...newArticle, [event.target.name]:event.target.value});
   }
 
   const handleSourceChange = (event) => {
+    setError(false);
     setNewArticle({...newArticle, source: { ...newArticle.source, [event.target.name]:event.target.value}});
   }
 
-  const handleSubmit = () => {
-    setNewArticle({...newArticle, publishedAt:new Date().toISOString()});
-    dispatch(addArticle(newArticle, newArticle.title));
+  const handleSubmit = (event) => {
+    if (newArticle.title !== "" && newArticle.description !== "" && newArticle.content !== "" && newArticle.url !== "" && newArticle.image !== "" && newArticle.source.name !== "" && newArticle.source.url !== "") {
+      setNewArticle({...newArticle, publishedAt:new Date().toISOString()});
+      dispatch(addArticle(newArticle, newArticle.title));
+    } else {
+      setError(true);
+      event.preventDefault();
+    }
   }
 
   return (
     <div>
-      <h2>Add New Article</h2>
-        <form className={classes.form}>
-        <h3 className={classes.subheading}>Title</h3>
-          <input name="title" className={classes.narrowField} value={newArticle.title} onChange={handleChange}/>
-          <h3 className={classes.subheading}>Description</h3>
-          <textarea name="description" className={classes.wideField} value={newArticle.description} onChange={handleChange}/>
-          <h3 className={classes.subheading}>Content</h3>
-          <textarea name="content" className={classes.wideField} value={newArticle.content} onChange={handleChange}/>
-          <h3 className={classes.subheading}>Article URL</h3>
-          <input name="url" className={classes.narrowField} value={newArticle.url} onChange={handleChange}/>
-          <h3 className={classes.subheading}>Image URL</h3>
-          <input name="image" className={classes.narrowField} value={newArticle.image} onChange={handleChange}/>
-          <h3 className={classes.subheading}>Website Name</h3>
-          <input name="name" className={classes.narrowField} value={newArticle.source.name} onChange={handleSourceChange}/>
-          <h3 className={classes.subheading}>Website URL</h3>
-          <input name="url" className={classes.narrowField} value={newArticle.source.url} onChange={handleSourceChange}/>
-          <Link className={classes.submitButton} to="/" onClick={handleSubmit}>Submit Article</Link>
-          <img className={classes.image} src={newArticle.image} alt={newArticle.name}></img>
-        </form>
+      <form className={classes.form}>
+        <h2 className={classes.title}>Add New Article</h2>
+        <TextField name="title"
+          error={newArticle.title.length === 0 && isError ? true : false}
+          helperText={newArticle.title.length === 0 && isError ? "Field cannot be empty." : ""}
+          required
+          className={classes.field}
+          label="Title"
+          variant="outlined"
+          margin="normal"
+          value={newArticle.title}
+          onChange={handleChange}
+        />
+        <TextField name="description"
+          error={newArticle.description.length === 0 && isError  ? true : false}
+          helperText={newArticle.description.length === 0 && isError ? "Field cannot be empty." : ""}
+          required
+          className={classes.field}
+          label="Description"
+          multiline
+          variant="outlined"
+          margin="normal"
+          value={newArticle.description}
+          onChange={handleChange}
+        />
+        <TextField name="content"
+          error={newArticle.content.length === 0 && isError  ? true : false}
+          helperText={newArticle.content.length === 0 && isError ? "Field cannot be empty." : ""}
+          required className={classes.field}
+          label="Content"
+          multiline
+          variant="outlined"
+          margin="normal"
+          value={newArticle.content}
+          onChange={handleChange}
+        />
+        <TextField name="url"
+          error={newArticle.url.length === 0 && isError ? true : false}
+          helperText={newArticle.url.length === 0 && isError ? "Field cannot be empty." : ""}
+          required
+          className={classes.field}
+          label="Article URL"
+          variant="outlined"
+          margin="normal"
+          value={newArticle.url}
+          onChange={handleChange}
+        />
+        <TextField name="image"
+          error={newArticle.image.length === 0 && isError ? true : false}
+          helperText={newArticle.image.length === 0 && isError ? "Field cannot be empty." : ""}
+          required
+          className={classes.field}
+          label="Image URL"
+          variant="outlined"
+          margin="normal"
+          value={newArticle.image}
+          onChange={handleChange}
+        />
+        <img className={classes.image} src={newArticle.image} alt="Preview image"></img>
+        <TextField name="name"
+          error={newArticle.source.name.length === 0 && isError ? true : false}
+          helperText={newArticle.source.name.length === 0 && isError ? "Field cannot be empty." : ""}
+          required className={classes.field}
+          label="Source Name"
+          variant="outlined"
+          margin="normal"
+          value={newArticle.source.name}
+          onChange={handleSourceChange}
+        />
+        <TextField name="url"
+          error={newArticle.source.url.length === 0 && isError ? true : false}
+          helperText={newArticle.source.url.length === 0 && isError ? "Field cannot be empty." : ""}
+          required
+          className={classes.field}
+          label="Source URL"
+          variant="outlined"
+          margin="normal"
+          value={newArticle.source.url}
+          onChange={handleSourceChange}
+        />
+        <Link className={classes.submitButton} to="/" onClick={handleSubmit}><Button >Submit Article</Button></Link>
+      </form>
     </div>
   )
 }

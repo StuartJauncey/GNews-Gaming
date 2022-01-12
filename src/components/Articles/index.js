@@ -10,11 +10,11 @@ const Articles = () => {
   const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (searchTerm) {
-      dispatch(searchArticles(searchTerm))
-    }
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   if (searchTerm) {
+  //     dispatch(searchArticles(searchTerm))
+  //   }
+  // }, [searchTerm]);
 
   return (
       <ul className={classes.container}>

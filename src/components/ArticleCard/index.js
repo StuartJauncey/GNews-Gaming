@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteArticle, articleSelected } from "../../state/actions";
 import dateModifier from "../../utils/dateModifier";
-import { BsPencil } from "react-icons/bs";
-import { TiDelete } from "react-icons/ti";
 import { useStyles } from "./style";
+import { Card, ButtonGroup, CardContent, CardMedia, Button, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const ArticleCard = (singleArticle) => {
   const classes = useStyles();
@@ -12,15 +12,75 @@ const ArticleCard = (singleArticle) => {
   const { article } = singleArticle;
 
   return (
-    <li className={classes.card} key={article[0]}>
-      <Link className={classes.editButton} onClick={() => {dispatch(articleSelected(article[1]))}} to={`/edit/${article[1].title}`}><BsPencil /></Link>
-      <p className={classes.deleteButton} onClick={() => {dispatch(deleteArticle(article[0]))}}><TiDelete /></p>
-      <h2 className={classes.title}>{article[1].title}</h2>
-      <h3 className={classes.description}>{article[1].description}</h3>
-      <p className={classes.content}> <a className={classes.articleLink} href={article[1].url} target="_blank" rel="noreferrer">{article[1].content}</a></p>
-      <img className={classes.image} src={article[1].image} alt={article[1].title}/>
-      <p className={classes.date}>{dateModifier(article[1].publishedAt)} @ <a className={classes.websiteLink} href={article[1].source.url} target="_blank" rel="noreferrer">{article[1].source.name}</a></p>  
-    </li>
+    <Card className={classes.card} sx={{
+      boxShadow: "none",
+      borderRadius: "20px"
+    }}>
+      <Accordion>
+        <AccordionSummary>
+          <CardContent sx={{
+            height: "320px",
+            width: "500px",
+            padding: 0
+          }}>
+            <Typography>
+              {dateModifier(article[1].publishedAt)}
+              <br />
+              @ <a className={classes.websiteLink} 
+                  href={article[1].source.url} 
+                  target="_blank"
+                  rel="noreferrer">
+                    {article[1].source.name}
+                </a>
+            </Typography>
+            <CardMedia sx={{
+              height: "200px",
+              margin: "12px 0"
+            }}
+              component="img"
+              image={article[1].image}
+              alt={article[1].title}
+            />
+            <Typography variant="h6">
+              {article[1].title}
+            </Typography>
+          </CardContent>
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <CardContent >
+            <Typography variant="subtitle2">
+              {article[1].description}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <Typography variant="body2">
+              <a className={classes.articleLink} 
+                href={article[1].url}
+                target="_blank"
+                rel="noreferrer">
+                  {article[1].content}
+              </a>
+            </Typography>
+          </CardContent>
+          <ButtonGroup variant="text" size="large">
+            <Link 
+              className={classes.editButton}
+              onClick={() => {dispatch(articleSelected(article[1]))}}
+              to={`/edit/${article[1].title}`}>
+              <Button color="secondary">
+                  Edit
+              </Button>
+            </Link>
+            <Button
+              color="error"
+              onClick={() => {dispatch(deleteArticle(article[0]))}}>
+                Delete
+            </Button>
+          </ButtonGroup>
+        </AccordionDetails>
+      </Accordion>
+    </Card>
   )
 }
 
