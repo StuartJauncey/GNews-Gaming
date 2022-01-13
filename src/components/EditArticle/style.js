@@ -2,10 +2,11 @@ import { createUseStyles } from "react-jss";
 
 export const useStyles = createUseStyles({
   title: {
-    margin: "0"
+    margin: "0",
+    fontSize: "30px"
   },
   form: {
-    margin: "0 auto 40px auto",
+    margin: "40px auto 40px auto",
     padding: "20px",
     width: "600px",
     backgroundColor: "white",

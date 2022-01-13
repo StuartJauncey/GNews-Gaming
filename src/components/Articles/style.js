@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 
 export const useStyles = createUseStyles({
   container: {
-    margin: "0 auto 20px auto",
+    margin: "20px auto 20px auto",
     padding: "0 20px",
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",

@@ -4,7 +4,7 @@ export const useStyles = createUseStyles({
   card: {
     margin: "30px 0 30px 0",
     width: "500px",
-    justifySelf: "center"
+    justifySelf: "center",
   },
   editButton: {
     textDecoration: "none",

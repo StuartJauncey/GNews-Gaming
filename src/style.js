@@ -3,10 +3,10 @@ import { createUseStyles } from "react-jss";
 export const useStyles = createUseStyles({
   '@global': {
     body: {
+      fontFamily: "Saira Condensed",
       backgroundColor: "whitesmoke",
       margin: "0",
       textAlign: "center",
-      fontFamily: "arial",
     },
     ul: {
       margin: "0",

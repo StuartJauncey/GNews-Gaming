@@ -10,17 +10,17 @@ const Articles = () => {
   const searchTerm = useSelector(state => state.search);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (searchTerm) {
-  //     dispatch(searchArticles(searchTerm))
-  //   }
-  // }, [searchTerm]);
+  useEffect(() => {
+    if (searchTerm) {
+      dispatch(searchArticles(searchTerm))
+    }
+  }, [searchTerm]);
 
   return (
       <ul className={classes.container}>
         {Object.entries(articlesStore).map(article => {
           return (
-            <ArticleCard article={article}/>
+            <ArticleCard key={article.title} article={article}/>
           )
         })}
       </ul>
