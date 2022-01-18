@@ -6,7 +6,7 @@ export const useStyles = createUseStyles({
       fontFamily: "Saira Condensed",
       backgroundColor: "whitesmoke",
       margin: "0",
-      textAlign: "center",
+      textAlign: "center"
     },
     ul: {
       margin: "0",

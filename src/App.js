@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddArticle from './components/AddArticle';
 import EditArticle from './components/EditArticle';
 import Articles from './components/Articles';
-import SearchBar from './components/SearchBar';
 import Title from './components/TitleBar';
 import { useStyles }  from "./style";
 

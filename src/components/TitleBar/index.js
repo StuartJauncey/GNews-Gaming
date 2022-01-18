@@ -13,28 +13,22 @@ const Title = () => {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar disableGutters variant="dense" sx={{
-          display: "grid",
-          gridTemplateColumns: "30% 40% 30%"
-        }}>
+        <Toolbar
+          classes={{ root: classes.headerBar }}
+          disableGutters
+          variant="dense">
           <IconButton>
             <Link className={classes.addArticleLink} to="/add-article">
-              <Button sx={{
-                  color: "white",
-                  fontSize: "16px",
-                  "&:hover": {
-                    color: "rgb(220, 220, 220)",
-                  }
-                }}
-                variant="outlined"
+              <Button classes={{ root: classes.addArticleButton }}
+                variant="standard"
                 endIcon={<AddCircleIcon />}
               >
                 Add
               </Button>
             </Link>
           </IconButton>
-          <Typography>
-            <Link to="/" className={classes.title}>
+          <Typography classes={{ root: classes.title }}>
+            <Link to="/" className={classes.titleLink}>
               GNews {capitaliseTitle(title)}
             </Link>
           </Typography>

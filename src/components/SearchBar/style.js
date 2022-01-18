@@ -5,5 +5,20 @@ export const useStyles = createUseStyles({
     margin: "0",
     display: "flex",
     justifyContent: "center"
+  },
+  searchButton: {
+    color: "white !important",
+    "&:hover": {
+      color: "rgb(220, 220, 220) !important"
+    }
+  },
+  searchField: {
+    width: "65%",
+    alignSelf: "center",
+    backgroundColor: "whitesmoke",
+    opacity: "70%",
+    "&:hover": {
+      opacity: "90%"
+    }
   }
 });

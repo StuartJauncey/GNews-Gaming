@@ -17,13 +17,13 @@ const Articles = () => {
   }, [searchTerm]);
 
   return (
-      <ul className={classes.container}>
-        {Object.entries(articlesStore).map(article => {
-          return (
-            <ArticleCard key={article.title} article={article}/>
-          )
-        })}
-      </ul>
+    <ul className={classes.container}>
+      {Object.entries(articlesStore).map(article => {
+        return (
+          <ArticleCard key={article.title} article={article}/>
+        )
+      })}
+    </ul>
   )
 }
 

@@ -45,7 +45,7 @@ export const editArticle = (selectedKey, article) => {
 }
 
 export const searchArticles = (searchInput) => async (dispatch) => {
-  const response = await fetch(`https://gnews.io/api/v4/search?q=${searchInput}&max=9&lang=en&token=${REACT_APP_API_KEY}`);
+  const response = await fetch(`https://gnews.io/api/v4/search?q="${searchInput}"&max=9&lang=en&token=${REACT_APP_API_KEY}`);
   const responseData = await response.json()
   const responseArticles = responseData.articles.reduce((obj, item) => ({
     ...obj, [item["title"]]: item
